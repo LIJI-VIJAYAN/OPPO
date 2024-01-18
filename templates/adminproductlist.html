@@ -1,0 +1,48 @@
+{% extends 'admin-base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="col-md-10">
+  <div>
+    <a href="{% url 'adminproductcreate' %}">
+      <button type="button" class="btn btn-success float-right">Add Product</button>
+    </a>
+  </div>
+  <div class="cls-top">
+    <div class="container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Description</th>
+            <th scope="col">Storagespace (GB)</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Imagename</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for product in products %}
+          <tr>
+            <th scope="row">{{ product.id }}</th>
+            <td>{{ product.Name }}</td>
+            <td>{{ product.Price }}</td>
+            <td>{{ product.Description }}</td>
+            <td>{{ product.Storagespace }}</td>
+            <td>{{ product.Stock }}</td>
+            <td>
+              {% if product.Imagename %}
+                <img src="{{ product.Imagename.url }}" alt="{{ product.Name }}" style="max-height: 50px;">
+              {% else %}
+                No Image
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

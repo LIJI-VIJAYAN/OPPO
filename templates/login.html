@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="login-holder">
+    <form action="adminproductlist" method="get">
+    <div class="user-login">
+        <div class="login-div">
+            <div style="margin-right:70px;"><label>Email</label></div>
+            <div><input type="text" name="email"></div>
+        </div>
+        <div class="login-div">
+            <div style="margin-right:43px;"><label>Password</label></div>
+            <div><input type="password" name="password"></div>
+        </div>
+        <div class="login-submit">
+            <input type="submit" value="Submit" />
+        </div>
+    </div>
+    </form>
+</div>
+{% endblock %}

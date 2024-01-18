@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Welcome to Our Online Store</h2>
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <a href="{% url 'store' %}">
+                <button type="button" class="btn btn-primary btn-lg">View Store</button>
+            </a>
+        </div>
+        <div class="col-md-6">
+            <a href="{% url 'adminproductlist' %}">
+                <button type="button" class="btn btn-success btn-lg">Admin Product List</button>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

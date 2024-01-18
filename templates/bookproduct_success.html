@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="alert alert-success" role="alert">
+        <strong>Success:</strong> {{ success_message }}
+    </div>
+    <a href="{% url 'store' %}" class="btn btn-primary">Back to Store</a>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="product-details">
+        <div class="row">
+            <div class="col-md-6">
+                <!-- Display the product image -->
+                <img src="{{ product.Imagename.url }}" alt="{{ product.Name }}" class="img-fluid product-image">
+            </div>
+            <div class="col-md-6">
+                <h2 class="mb-4">{{ product.Name }}</h2>
+                
+                <!-- Display the product description -->
+                <p class="mb-3"><strong>Description:</strong> {{ product.Description }}</p>
+                
+                <!-- Display the available stock -->
+                <p class="mb-3"><strong>Available Stock:</strong> {{ product.Stock }}</p>
+                
+                <!-- Display the storage space in GB -->
+                <p class="mb-4"><strong>Storage Space:</strong> {{ product.Storagespace|floatformat:"2" }} GB</p>
+                
+                <!-- Buy option button with quantity selection -->
+                <form method="post" action="{% url 'bookproduct' product.id %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="quantity">Quantity:</label>
+                        <select name="quantity" id="quantity" class="form-control">
+                            {% for i in quantity_range %}
+                                <option value="{{ i }}">{{ i }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary" {% if product.Stock < 1 %}disabled{% endif %}>
+                        {% if product.Stock < 1 %}Out of Stock{% else %}Buy Now{% endif %}
+                    </button>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

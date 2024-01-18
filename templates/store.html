@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<style>
+    .phone-list-holder {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .product-card {
+        text-align: center;
+        max-width: 300px;
+        margin: 10px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 500px;
+        /* Set a fixed height for consistent alignment */
+        overflow: hidden;
+        /* Hide any content exceeding the fixed height */
+        transition: transform 0.3s ease-in-out;
+        cursor: pointer;
+    }
+
+    .product-card:hover {
+        transform: scale(1.05);
+    }
+
+    .image-block {
+        display: block;
+        margin: auto;
+        max-width: 100%;
+        height: auto;
+        max-height: 70%; /* Set a maximum height for the image */
+    object-fit: cover;
+    }
+
+    .title-block,
+    .description-block,
+    .price-block {
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.price-block {
+    font-weight: bold;
+    color: #008000;
+}
+</style>
+
+<div class="phone-list-holder">
+    {% for product in products %}
+    <a href="{% url 'userproductdetails' product.id %}" class="product-card">
+        <!-- Assuming 'image' field is a URL to the product image -->
+        <img class="image-block" src="{{ product.Imagename.url }}" alt="{{ product.Name }}" />
+
+        <div class="title-block">
+            {{ product.Name }}
+        </div>
+        <div class="description-block">
+            {{ product.Description }}
+        </div>
+        <div class="price-block">
+            ₹{{ product.Price }}
+        </div>
+    </a>
+    {% endfor %}
+</div>
+
+{% endblock %}
