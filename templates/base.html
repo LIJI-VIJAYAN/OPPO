@@ -3,15 +3,52 @@
   <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet"
-      href="{% static '/css/style.css' %}">
+      href="{% static '/css/style-main.css' %}">
   </head>
   <body>
     <div class="menu">
       <div class="menu-title">OPPO Store</div>
-      <!-- <div class="menu-item"><a class="menu-link" href="store">Store</a></div> -->
-      <!-- <div class="menu-item"><a class="menu-link" href="login">Login</a></div> -->
+      <div class="menu-item"><a class="menu-link"  href="javascript:void(0);">Phones</a></div>
+      <div class="menu-item"><a class="menu-link" href="javascript:void(0);">Audio</a></div>
+      <div class="menu-item"><a class="menu-link" href="javascript:void(0);">Tablets</a></div>
+      <div class="menu-item"><a class="menu-link" href="javascript:void(0);">Wearables</a></div>
+      <div class="menu-item"><a class="menu-link" href="javascript:void(0);">Accessories</a></div>
+      <div class="menu-item"><a class="menu-link" href="javascript:void(0);">About OPPO</a></div>
+      <div class="menu-left">
+        <div class="menu-item"><a class="menu-link" href="{% url 'adminproductlist' %}">Login</a></div>
+      </div>
+    </div>
+    <div class="carousal-main">
+      <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="{% static 'images/6nmhSMTaBQkH4rjp.webp' %}" alt="First slide">
+            <div class="carousel-caption d-none d-md-block carousel-head carousel-desc">
+              <h2>Oppo A59 5G</h2>
+              <p>10% instant discount</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="{% static 'images/C8mUm1g2dV6LcDTy.webp' %}" alt="Second slide">
+            <div class="carousel-caption d-none d-md-block carousel-head carousel-desc">
+              <h2>Oppo Reno 5G</h2>
+              <p>Glowing silk design</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="{% static 'images/nJRCpevsEbFS3T2r.webp' %}" alt="Third slide">
+            <div class="carousel-caption d-none d-md-block carousel-head carousel-desc">
+              <h2>Refer A friend</h2>
+              <p>You win 18000</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     {% block content %}
     {% endblock %}
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
 </html>
